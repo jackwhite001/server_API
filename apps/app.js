@@ -1,5 +1,8 @@
 const express = require('express');
 const cors = require('cors');
+// 导入aip接口
+const userRouterAPI = require('../router/userRouter');
+
 const app = express();
 // use middleware to from our current for incoming json
 app.use(express.json());
@@ -7,6 +10,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // use middleware to handle cors
 app.use(cors());
+// 挂载API接口
+app.use('/api', userRouterAPI);
 /* // 或 替换
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');

@@ -8,3 +8,5 @@ npm init
 
 npm run start
 npm run dev
+
+tips: you must be over to over try it,
