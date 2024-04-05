@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 
 // create document construct object
 // set attribution 、value and type in collection
-const userSchema = mongoose.Schema({
+let userSchema = mongoose.Schema({
     // id
     // firstName lastName address city state zip email password
     // define rules
-    _id: mongoose.Schema.Types.ObjectId, //mongoose self define id
+    // _id: mongoose.Schema.Types.ObjectId, //mongoose self define id
     firstName: {
         type: String,
         required: true, // define must or can choose
@@ -43,5 +43,5 @@ const userSchema = mongoose.Schema({
 
 // create model object, wrapper document to object
 
-const userModel = mongoose.model('firstUser', userSchema);
+let userModel = mongoose.model('firstUser', userSchema);
 module.exports = userModel;

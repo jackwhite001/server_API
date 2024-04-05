@@ -1,13 +1,25 @@
 const mongoose = require('mongoose');
 const express = require('express');
 require('dotenv').config();
-
+const { DATABASE, HOST_NAME, MONGOD_PORT, COLLECTION } = process.env;
 module.exports = (success, error) => {
+    //Judgment error and set default value for error
+    if (typeof error !== 'function') {
+        error = () => {
+            console.log('连接失败~~~');
+        };
+    }
+    // console.log('mongoose', `${DATABASE}://${HOST_NAME}:${MONGOD_PORT}/${COLLECTION}`);
     // create mongoose connect server
     const connectDb = async () => {
-        return await mongoose.connect(process.env.MONGOOSE).then(() => {
-            console.log('mongoose is up adn running');
-        });
+        return await mongoose
+            .connect(`${DATABASE}://${HOST_NAME}:${MONGOD_PORT}/${COLLECTION}`)
+            .then(() => {
+                console.log('mongoose is up adn running');
+            })
+            .catch(e => {
+                console.log(e);
+            });
     };
     // create recallBack only run once
     const successConnect = async () => {
