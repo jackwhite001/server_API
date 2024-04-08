@@ -2,6 +2,11 @@ const express = require('express');
 const cors = require('cors');
 // 导入aip接口
 const userRouterAPI = require('../router/userRouter');
+const bookRouterAPI = require('../router/bookRouter');
+const authorRouterAPI = require('../router/authorRouter');
+// 导入swagger
+const swaggerUi = require('swagger-ui-express');
+const document = require('../config/swaggerOptions');
 
 const app = express();
 // use middleware to from our current for incoming json
@@ -11,7 +16,12 @@ app.use(express.urlencoded({ extended: true }));
 // use middleware to handle cors
 app.use(cors());
 // 挂载API接口
-app.use('/api', userRouterAPI);
+app.use('/user', userRouterAPI);
+app.use('/book', bookRouterAPI);
+app.use('/author', authorRouterAPI);
+
+// use middleware for api-docs swagger
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(document));
 /* // 或 替换
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');

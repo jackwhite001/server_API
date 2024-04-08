@@ -1,0 +1,552 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "NodeJs Bootcamp Documentation API",
+    "version": "1.0.0",
+    "contact": {
+      "name": "a bai",
+      "email": "1121176166@qq.com",
+      "url": "http://baboonbutts.nft"
+    }
+  },
+  "servers": [{
+    "description": "Local Server",
+    "url": "http://localhost:3001"
+  }],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "bearerFormat": "JWT",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "security": [{
+    "bearerAuth": []
+  }],
+  "paths": {
+    "/user/register": {
+      "post": {
+        "tags": ["users"],
+        "description": "Register User",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "firstName": {
+                    "type": "string",
+                    "default": "abai"
+                  },
+                  "lastName": {
+                    "type": "string",
+                    "default": "haha"
+                  },
+                  "address": {
+                    "type": "string",
+                    "default": "河南省洛阳市伊川县见新一届9号"
+                  },
+                  "city": {
+                    "type": "string",
+                    "default": "洛阳市"
+                  },
+                  "state": {
+                    "type": "string",
+                    "default": "中国"
+                  },
+                  "zipCode": {
+                    "type": "string",
+                    "default": "47130"
+                  },
+                  "email": {
+                    "type": "string",
+                    "default": "1121176166@qq.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "default": "a123456789"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "201": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error"
+          },
+          "501": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/user/login": {
+      "post": {
+        "tags": ["users"],
+        "description": "Login User",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "default": "1121176166666@qq.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "default": "a123456789"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "201": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error"
+          },
+          "501": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/book/": {
+      "get": {
+        "tags": ["books"],
+        "description": "Get All Books",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "201": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error"
+          },
+          "501": {
+            "description": "Error"
+          }
+        }
+      },
+      "post": {
+        "tags": ["books"],
+        "description": "Put Book",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "default": "vue实战"
+                  },
+                  "author": {
+                    "type": "string",
+                    "default": "abaia"
+                  },
+                  "ISBN": {
+                    "type": "string",
+                    "default": "1234-4321-1234-5532"
+                  },
+                  "numberOfPages": {
+                    "type": "number",
+                    "default": "1251"
+                  },
+                  "price": {
+                    "type": "number",
+                    "default": "121.5"
+                  },
+                  "yearPublished": {
+                    "type": "number",
+                    "default": "2019"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "201": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error"
+          },
+          "501": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/book/books": {
+      "get": {
+        "tags": ["books"],
+        "description": "Get All Books Id and Title",
+        "requestBody": {
+          "content": {
+            "application/json": {}
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "201": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error"
+          },
+          "501": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/book/{bookId}": {
+      "get": {
+        "tags": ["books"],
+        "description": "Get a Book by Id",
+        "parameters": [{
+          "name": "bookId",
+          "in": "path",
+          "description": "The Book Id",
+          "required": true
+        }],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "201": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error"
+          },
+          "501": {
+            "description": "Error"
+          }
+        }
+      },
+      "put": {
+        "tags": ["books"],
+        "description": "Update a Book by Id",
+        "parameters": [{
+          "name": "bookId",
+          "in": "path",
+          "description": "The Book Id",
+          "required": true
+        }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "default": "vue实战"
+                  },
+                  "author": {
+                    "type": "string",
+                    "default": "abaia"
+                  },
+                  "ISBN": {
+                    "type": "string",
+                    "default": "1234-4321-1234-5532"
+                  },
+                  "numberOfPages": {
+                    "type": "number",
+                    "default": "1251"
+                  },
+                  "price": {
+                    "type": "number",
+                    "default": "121.5"
+                  },
+                  "yearPublished": {
+                    "type": "number",
+                    "default": "2019"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "201": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error"
+          },
+          "501": {
+            "description": "Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["books"],
+        "description": "Delete a Book by Id",
+        "parameters": [{
+          "name": "bookId",
+          "in": "path",
+          "description": "The Book Id",
+          "required": true
+        }],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "201": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error"
+          },
+          "501": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/author/": {
+      "get": {
+        "tags": ["authors"],
+        "description": "Get All Authors",
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "201": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error"
+          },
+          "501": {
+            "description": "Error"
+          }
+        }
+      },
+      "post": {
+        "tags": ["authors"],
+        "description": "Put Author",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "default": "big white"
+                  },
+                  "book": {
+                    "type": "string",
+                    "default": "6613252741a1bd70f9b16fc3"
+                  },
+                  "publisher": {
+                    "type": "string",
+                    "default": "big big white"
+                  },
+                  "website": {
+                    "type": "string",
+                    "default": "www.bigwhite.com"
+                  },
+                  "twitter": {
+                    "type": "string",
+                    "default": "jack white"
+                  },
+                  "about": {
+                    "type": "string",
+                    "default": "about deep learning orient book"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "201": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error"
+          },
+          "501": {
+            "description": "Error"
+          }
+        }
+      }
+    },
+    "/author/{authorId}": {
+      "get": {
+        "tags": ["authors"],
+        "description": "Get an Author by Id",
+        "parameters": [{
+          "name": "authorId",
+          "in": "path",
+          "description": "The Author Id",
+          "required": true
+        }],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "201": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error"
+          },
+          "501": {
+            "description": "Error"
+          }
+        }
+      },
+      "patch": {
+        "tags": ["authors"],
+        "description": "Update an Author by Id",
+        "parameters": [{
+          "name": "authorId",
+          "in": "path",
+          "description": "The Author Id",
+          "required": true
+        }],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "default": "big white"
+                  },
+                  "publisher": {
+                    "type": "string",
+                    "default": "big big white"
+                  },
+                  "twitter": {
+                    "type": "string",
+                    "default": "jack white"
+                  },
+                  "about": {
+                    "type": "string",
+                    "default": "about deep learning orient book"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "201": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error"
+          },
+          "501": {
+            "description": "Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["authors"],
+        "description": "Delete an Author by Id",
+        "parameters": [{
+          "name": "authorId",
+          "in": "path",
+          "description": "The Author Id",
+          "required": true
+        }],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "201": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Error"
+          },
+          "501": {
+            "description": "Error"
+          }
+        }
+      }
+    }
+  }
+}

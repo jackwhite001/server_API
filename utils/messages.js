@@ -1,0 +1,31 @@
+module.exports = {
+    successful_register: 'Registration Successful',
+    successful_login: 'Login Successful',
+    failed_register: 'Registration Failed',
+    failed_login: 'Login Failed',
+    // book相关
+    books_found: 'Successful Found',
+    books_not_found: 'Failed Found',
+    books_exist: 'Book Already Exists',
+    books_add: 'Book Add Successful',
+    books_add_failed: 'Book Add Failed',
+    books_id_Found: 'Book Id Found',
+    books_id_failed: 'Book Id Failed Found',
+    books_update: 'Book Update Successful',
+    books_update_failed: 'Book Update Failed',
+    books_delete: 'Book Delete Successful',
+    books_delete_failed: 'Book Delete Failed',
+    // author相关
+    author_exist: 'Author Already Exists',
+    author_add: 'Author Add Successful',
+    author_add_failed: 'Author Add Failed',
+    author_id_failed: 'Author Id Failed Found',
+    author_id_Found: 'Author Id Found',
+    author_found_failed: 'Author Failed Found',
+    author_update: 'Author Update Successful',
+    author_update_failed: 'Author Update Failed',
+    author_delete: 'Author Delete Successful',
+    author_delete_failed: 'Author Delete Failed',
+    // auth
+    auth_failed: 'Authorization Failed',
+};
